@@ -1,0 +1,99 @@
+<mat-sidenav-container  class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>
+      <!--<span class="logo"><mat-icon>barbell</mat-icon></span>-->
+    </mat-toolbar>
+    <!-- Side  Nav Options -->
+    <mat-nav-list>
+      <a mat-list-item href="#"><i class="fa-solid fa-house icon"></i><span >{{'Dashbord'|translate}}</span></a>
+      <a mat-list-item href="#"><i class="fa-solid fa-user icon"></i><span>{{'Registering'|translate}}</span></a>
+      <a mat-list-item href="#"><i class="fa-solid fa-money-bill-wheat icon"></i> <span>{{'Transactions'|translate}}</span></a>
+      <a mat-list-item href="#"><i class="fa-solid fa-plus icon"></i> <span>{{'Create Event'|translate}}</span></a>
+      <a mat-list-item href="#"><i class="fa-solid fa-window-restore icon"></i> <span>{{'Website Settings'|translate}}</span></a>
+      <a mat-list-item href="#"><i class="fa-solid fa-chart-simple icon"></i><span>{{'Earning Statistics'|translate}}</span></a>
+      <a mat-list-item href="#"><i class="fa-solid fa-gear icon"></i><span>{{'Dashbord Settings'|translate}}</span></a>
+    </mat-nav-list>
+    <!-- Side  Nav Options -->
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon style="color: black;" aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+        <div  [ngClass]="{'search-box-phone': isHandset, 'search-box': !isHandset}">
+          <div class="input-container">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i><input [(ngModel)]="inputValue"  type="text" placeholder="Search"><i (click)="clearInput()" *ngIf="inputValue.trim() !== ''"   class="fa-solid fa-x close-icon"></i>
+        </div>
+        </div>
+      <span class="example-spacer"></span>
+      <!--Begin of Language  section -->
+      <div style="margin-right:2%;cursor:pointer;" class="custom-select-width" [ngClass]="{'hide-element': isHandset, 'show-element': !isHandset}">
+        <div mat-button [matMenuTriggerFor]="menu" class="icon-container" ><i class="fa-solid fa-globe"></i></div>
+        <mat-menu class="languagemenu" xPosition="before"  #menu="matMenu">
+        <button mat-menu-item (click)="Changelang('en')">English</button>
+        <button mat-menu-item (click)="Changelang('sp')">Spanish</button>
+        <button mat-menu-item (click)="Changelang('fr')">Frensh</button>
+        </mat-menu>
+        </div>
+      <!--End of Language  section -->
+
+
+
+
+      <!--Begin of Dark mode  section -->
+
+            <div (click)="toggleDarkTheme()"   class="lang"  [ngClass]="{'hide-element': isHandset, 'show-element': !isHandset}">
+              <div class="icon-container">
+              <i class="fa-solid fa-moon" ></i>
+              </div>
+            </div>
+       <!--End of Dark mode  section -->
+
+       <!--Begin of notification section -->
+       <div mat-button [matMenuTriggerFor]="beforenotifications" style="margin-right:2%;cursor:pointer;" class="icon-container">
+        <div class="notifications">
+          <i style="font-size:23px;"  matBadge="3" matBadgeOverlap="false" class="demo-section" class="fa-regular fa-bell"></i>
+      </div>
+      <mat-menu  #beforenotifications="matMenu" class="my-menu" xPosition="before">
+        <button  mat-menu-item>
+          Notification 1
+        </button>
+        <button mat-menu-item>Notification 2</button>
+        <a mat-menu-item href="https://www.youtube.com/">Notification 3</a>
+      </mat-menu>
+      </div>
+
+      <!--End of notification section -->
+
+
+
+
+      <!--Begin of Profile   section -->
+       <div class="avatar-container ">
+         <img mat-button [matMenuTriggerFor]="beforeMenu" src="https://cdn-icons-png.flaticon.com/512/4792/4792944.png" class="avatar" alt="">
+       </div>
+       <mat-menu  #beforeMenu="matMenu" class="my-menu-profil" xPosition="before">
+         <div style="padding-bottom:8%;padding-left:7%"  class="box-inside">
+          <img  src="https://cdn-icons-png.flaticon.com/512/4792/4792944.png" class="avatar-v2" alt=""><span> Naoufal Bensaid</span>
+         </div>
+         <button  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-user menu-icons"></i></div><span class="text-with-margin"> Profil</span></div></button>
+         <button  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-clock-rotate-left menu-icons"></i></div><span class="text-with-margin"> Activity</span></div></button>
+         <button  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-comment menu-icons"></i></div><span class="text-with-margin"> Give feedback</span></div></button>
+         <button [ngClass]="{'show-element': isHandset, 'hide-element': !isHandset}"  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-moon menu-icons"></i></div><span class="text-with-margin">Dark mode</span></div></button>
+         <button  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-right-from-bracket menu-icons"></i></div><span class="text-with-margin"> Logout</span></div></button>
+      </mat-menu>
+      <!--End of Profile  section -->
+
+
+    </mat-toolbar>
+    <app-dashboard></app-dashboard>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,239 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width:80px;
+  transition: width 0.2s;
+  background-color:rgb(241, 245, 242);
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.sidenav:hover{
+  width:250px;
+  transition: width 0.2s;
+}
+
+.sidenav span{
+  display: none;
+}
+.sidenav:hover span {
+  display:inline;
+}
+
+
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+}
+.mat-icon{
+  cursor: pointer;
+}
+
+a.mat-list-item {
+  display: flex;
+  align-items: center;
+}
+
+.sidenav a{
+  margin-top:5%;
+}
+
+.icon {
+  margin-right:8%;
+  margin-left:10%;
+  color: rgb(152, 150, 150);
+  font-size:25px;
+}
+
+.logo{
+  font-size:25px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding-left:10%;
+}
+.mat-toolbar
+{
+  background-color:rgb(241, 245, 242);
+  color: black;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+.avatar-container {
+  display: flex;
+  align-items: center;
+  padding-right:2.5%;
+}
+.avatar {
+  width:40px; /* Adjust the width as needed */
+  height:40px; /* Adjust the height as needed */
+  border-radius: 50%; /* Make it a circle */
+  object-fit: cover; /* Ensure the image covers the entire container */
+  border: 2px solid #fff; /* Add a border around the image */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  cursor: pointer;
+}
+.avatar-container h5{
+  font-size: medium;
+  padding-left:5%;
+  cursor: pointer;
+}
+.my-menu,.my-menu-profil button.mat-menu-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.menu-icons{
+  font-size:20px;
+
+}
+::ng-deep .my-menu-profil{
+  width: 230px;
+  margin-top:8%;
+}
+
+::ng-deep .my-menu {
+  width: 450px;
+  margin-top:8%;
+  height: 60vh;
+}
+::ng-deep .languagemenu {
+  width: 150px;
+  margin-top:8%;
+}
+.lang{
+  margin-right:2%;
+  cursor: pointer;
+
+}
+.lang-menu{
+  border: none;outline:none;background-color:rgb(241, 245, 242);
+  cursor: pointer;
+
+}
+
+.lang-menu select option {
+  padding: 10px;
+}
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; /* Adjust the size of the circle */
+  height: 40px; /* Adjust the size of the circle */
+  border-radius: 50%;
+  background-color: #edecec; /* Gray color */
+}
+.custom-select-width mat-select {
+  width: 140px;
+}
+::ng-deep .mat-mdc-select-arrow{
+  margin-right:0px;
+  display: none;
+}
+
+.mat-option{
+  padding-top:50%;
+}
+
+.box-inside{
+  margin-right:20px;
+}
+.avatar-v2{
+  width:35px;
+  height:35px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.icon-menus-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:35px;
+  height:35px;
+  border-radius: 50%;
+  background-color: #eeecec;
+}
+.button-content {
+  display: flex;
+  align-items: center;
+}
+.text-with-margin {
+  margin-left: 8px;
+}
+.search-box{
+  width:25%;
+  display: flex;
+  align-items: center;
+}
+.search-box input{
+  background-color:#edecec;
+  border-radius:20px;
+  border: none;
+  outline: none;
+  padding-left:15%;
+  height:6vh;
+  font-size:15px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  width:100%;
+}
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left:20px;
+  transform: translateY(-50%);
+  color: #888;
+  cursor: pointer;
+  font-size:16px;
+}
+.close-icon{
+  position: absolute;
+  top: 50%;
+  right:15px;
+  transform: translateY(-50%);
+  color: #888;
+  cursor: pointer;
+  font-size:13px;
+}
+.hide-element{
+display: none;
+}
+
+.show-element{
+  display: block;
+}
+.search-box-phone{
+  width:50%;
+  display: flex;
+  align-items: center;
+}
+.input-container {
+  position: relative;
+  flex: 1;
+}
+.search-box-phone input{
+  background-color:#edecec;
+  border-radius:20px;
+  border: none;
+  outline: none;
+  padding-left:25%;
+  height:5vh;
+  font-size:15px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  width:100%;
+}
+.dark-theme {
+  --background-color: #333;
+  --text-color: #fff;
+}
+
+

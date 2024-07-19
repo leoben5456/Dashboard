@@ -1,0 +1,135 @@
+  <div class="grid-container"  >
+    <h1 class="mat-h1"><span></span>{{'Dashbord'|translate}}</h1>
+    <mat-grid-list role="list" [cols]="cols" rowHeight="160">
+      <mat-grid-tile role="listitem"  [colspan]="1" [rowspan]="1" style="color:black">
+        <mat-card class="dashboard-card" style="background-color:#BCD4DE;">
+          <mat-card-header>
+            <h5>{{'Revenue'|translate}}</h5>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <i class="fa-solid fa-dollar-sign left-icon" ></i><span class="right-icon">300</span>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile role="listitem"  [colspan]="1" [rowspan]="1" style="color:black">
+        <mat-card class="dashboard-card" style="background-color:#A5CCD1;">
+          <mat-card-header>
+            <h5>{{'Clients'|translate}}</h5>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <i class="fa-solid fa-user left-icon"></i><span class="right-icon">250</span>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile role="listitem"  [colspan]="1" [rowspan]="1" style="color:black">
+        <mat-card class="dashboard-card" style="background-color:#9DACB2">
+              <mat-card-header>
+                <h5>{{'Visitors'|translate}}</h5>
+              </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <i class="fa-solid fa-eye left-icon"></i><span class="right-icon">300</span>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile role="listitem"  [colspan]="1" [rowspan]="1" style="color:black">
+        <mat-card class="dashboard-card" style="background-color:#949BA0">
+              <mat-card-header>
+                <h5>{{'Trainers'|translate}}</h5>
+              </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <i class="fa-solid fa-person-chalkboard left-icon"></i><span class="right-icon">12</span>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list role="list" [cols]="cols" rowHeight="430px">
+      <mat-grid-tile role="listitem"  [colspan]="colss" rowspan="1">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <span>{{'Monthly Client Traffic'|translate}}</span>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <app-chart></app-chart>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile role="listitem"  colspan="1" rowspan="1">
+        <mat-card class="dashboard-card">
+          <mat-card-header style="padding-bottom:1%;">
+            <span>{{'Clients Gender Overview'|translate}}</span>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <app-pie-chart></app-pie-chart>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile role="listitem"  colspan="1" rowspan="1">
+        <mat-card class="dashboard-card">
+          <mat-card-header style="padding-bottom:1%;">
+            <span> Transactions</span>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+<mat-table [dataSource]="transactions">
+  <ng-container matColumnDef="name" >
+    <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+    <mat-cell *matCellDef="let transaction">{{ transaction.name }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+    <mat-cell *matCellDef="let transaction">{{ transaction.status }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="price">
+    <mat-header-cell *matHeaderCellDef>Amount</mat-header-cell>
+    <mat-cell *matCellDef="let transaction">{{ transaction.price}}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="['name', 'status', 'price']"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: ['name', 'status', 'price']"></mat-row>
+</mat-table>
+<div class="all-transations">
+  <button>View  all Transactions</button>
+</div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list role="list" [cols]="cols" rowHeight="430px">
+      <mat-grid-tile role="listitem"  [colspan]="colss" rowspan="1">
+        <mat-card class="dashboard-card">
+          <mat-card-header style="padding-bottom:1%;">
+            <span>{{'Member Age Distribution'|translate}}</span>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+          <app-radialbar></app-radialbar>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile role="listitem"  [colspan]="colss" rowspan="1">
+        <mat-card class="dashboard-card">
+          <mat-card-header style="padding-bottom:1%;">
+            <span>{{'Radar Insights: Clients by Day'|translate}}</span>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <app-radar-chart></app-radar-chart>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+    <mat-grid-list role="list" cols="2" rowHeight="290px">
+      <mat-grid-tile role="listitem"  [colspan]="2" [rowspan]="2">
+        <mat-card class="dashboard-card">
+          <mat-card-header style="padding-bottom:1%;">
+            <span>{{'Black List'|translate}}</span>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <app-blacklist-table></app-blacklist-table>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
+
+
+
