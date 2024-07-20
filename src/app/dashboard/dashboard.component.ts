@@ -2,8 +2,12 @@ import { Component, inject, HostListener, Input } from '@angular/core';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
 import {MatTableModule} from '@angular/material/table';
-
-
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { PieChartComponent } from '../pie-chart/pie-chart.component';
+import { BlacklistTableComponent } from '../blacklist-table/blacklist-table.component';
+import { ChartComponentt} from '../chart/chart.component';
+import { RadarChartComponent } from '../radar-chart/radar-chart.component';
+import { RadialbarComponent } from '../radialbar/radialbar.component';
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -56,6 +60,43 @@ export class DashboardComponent {
     { name: 'Transaction5', status: 'Completed', price: 100 },
   ];
 
+
+  tiles = [
+    { id: 1, title: 'Revenue', icon: 'fa-solid fa-dollar-sign', value: 300, color: '#BCD4DE' },
+    { id: 2, title: 'Clients', icon: 'fa-solid fa-user', value: 250, color: '#A5CCD1' },
+    { id: 3, title: 'Visitors', icon: 'fa-solid fa-eye', value: 300, color: '#9DACB2' },
+    { id: 4, title: 'Trainers', icon: 'fa-solid fa-person-chalkboard', value: 12, color: '#949BA0' }
+  ];
+  chartTiles = [
+    { title: 'Monthly Client Traffic', component: ChartComponentt },
+    { title: 'Clients Gender Overview', component: PieChartComponent },
+    { title: 'Member Age Distribution', component: RadialbarComponent },
+    { title: 'Radar Insights: Clients by Day', component: RadarChartComponent },
+    
+  ];
+  ngOnInit() {
+    this.loadTiles();
+  }
+
+  drop(event: CdkDragDrop<{ id: number; title: string; icon: string; value: number; color: string }[]>) {
+    moveItemInArray(this.tiles, event.previousIndex, event.currentIndex);
+    this.saveTiles();
+  }
+
+  dropChart(event: CdkDragDrop<{ title: string; component: any }[]>) {
+    moveItemInArray(this.chartTiles, event.previousIndex, event.currentIndex);
+  }
+
+  saveTiles() {
+    localStorage.setItem('dashboardTiles', JSON.stringify(this.tiles));
+  }
+
+  loadTiles() {
+    const savedTiles = localStorage.getItem('dashboardTiles');
+    if (savedTiles) {
+      this.tiles = JSON.parse(savedTiles);
+    }
+  }
 }
 
 
