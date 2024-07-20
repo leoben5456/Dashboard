@@ -48,6 +48,9 @@ export class ChartComponentt{
         color:'#A0B9BF',
       }],
         chart: {
+        toolbar: {
+            show: false
+        },
         type: 'bar',
         height: 350,
         stacked: true,

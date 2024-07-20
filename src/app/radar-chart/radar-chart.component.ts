@@ -46,6 +46,9 @@ export class RadarChartComponent {
         }
       ],
       chart: {
+        toolbar: {
+          show: false
+        },
         height: 350,
         type: "radar"
 

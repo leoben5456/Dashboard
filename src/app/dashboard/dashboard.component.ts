@@ -1,4 +1,4 @@
-import { Component, inject, HostListener } from '@angular/core';
+import { Component, inject, HostListener, Input } from '@angular/core';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
 import {MatTableModule} from '@angular/material/table';
@@ -33,6 +33,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 
 export class DashboardComponent {
+  @Input() smallVersion: boolean = false;
   cols = 4;
   colss=2;
   constructor(private breakpointObserver: BreakpointObserver) {
@@ -54,7 +55,7 @@ export class DashboardComponent {
     { name: 'Transaction4', status: 'Pending', price: 150 },
     { name: 'Transaction5', status: 'Completed', price: 100 },
   ];
- 
+
 }
 
 

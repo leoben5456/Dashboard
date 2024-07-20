@@ -32,6 +32,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { RadarChartComponent } from './radar-chart/radar-chart.component';
 import { RadialbarComponent } from './radialbar/radialbar.component';
+import { DashboardSettingsComponent } from './dashboard-settings/dashboard-settings.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 export function HttpLoaderFactory(http:HttpClient){
   return new TranslateHttpLoader(http);
 }
@@ -45,7 +47,8 @@ export function HttpLoaderFactory(http:HttpClient){
     PieChartComponent,
     BlacklistTableComponent,
     RadarChartComponent,
-    RadialbarComponent
+    RadialbarComponent,
+    DashboardSettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -70,6 +73,7 @@ export function HttpLoaderFactory(http:HttpClient){
     MatButtonModule,
     HttpClientModule,
     MatSelectModule,
+    DragDropModule,
     TranslateModule.forRoot(
       {
         loader:{

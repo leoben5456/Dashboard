@@ -1,4 +1,4 @@
-  <div class="grid-container"  >
+  <div class="grid-container" [ngClass]="{'small-dashboard': smallVersion}"  >
     <h1 class="mat-h1"><span></span>{{'Dashbord'|translate}}</h1>
     <mat-grid-list role="list" [cols]="cols" rowHeight="160">
       <mat-grid-tile role="listitem"  [colspan]="1" [rowspan]="1" style="color:black">
