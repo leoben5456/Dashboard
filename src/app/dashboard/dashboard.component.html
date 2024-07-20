@@ -1,6 +1,6 @@
-<div  cdkDropList class="grid-container" [cdkDropListData]="tiles" (cdkDropListDropped)="drop($event)" class="grid-container" [ngClass]="{'small-dashboard': smallVersion}"  >
+<div  cdkDropList cdkDropListOrientation="horizontal" class="grid-container" [cdkDropListData]="tiles" (cdkDropListDropped)="drop($event)" class="grid-container">
   <h1 class="mat-h1"><span></span>{{'Dashboard' | translate}}</h1>
-<mat-grid-list role="list" [cols]="cols" rowHeight="160">
+  <mat-grid-list role="list" [cols]="cols" rowHeight="160">
   <mat-grid-tile *ngFor="let tile of tiles" cdkDrag role="listitem" [colspan]="1" [rowspan]="1" style="color:black">
     <mat-card class="dashboard-card" [ngStyle]="{'background-color': tile.color}">
       <mat-card-header>
@@ -10,92 +10,29 @@
         <i class="{{tile.icon}} left-icon"></i><span class="right-icon">{{tile.value}}</span>
       </mat-card-content>
     </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
-  <mat-grid-list role="list" [cols]="cols" rowHeight="430px">
-    <mat-grid-tile role="listitem"  [colspan]="colss" rowspan="1">
+   </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+
+
+<div cdkDropList class="charts" [cdkDropListData]="chartTiles" (cdkDropListDropped)="dropChart($event)">
+  <mat-grid-list [cols]="4" rowHeight="430px">
+    <mat-grid-tile *ngFor="let chart of chartTiles"
+                  cdkDrag
+                  cdkDragData="chart"
+                  [colspan]="chart.colspan"
+                  [rowspan]="chart.rowspan"
+                  role="listitem">
       <mat-card class="dashboard-card">
         <mat-card-header>
-          <span>{{'Monthly Client Traffic'|translate}}</span>
+          <span>{{chart.title | translate}}</span>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <app-chart></app-chart>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile role="listitem"  colspan="1" rowspan="1">
-      <mat-card class="dashboard-card">
-        <mat-card-header style="padding-bottom:1%;">
-          <span>{{'Clients Gender Overview'|translate}}</span>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <app-pie-chart></app-pie-chart>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile role="listitem"  colspan="1" rowspan="1">
-      <mat-card class="dashboard-card">
-        <mat-card-header style="padding-bottom:1%;">
-          <span> Transactions</span>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-<mat-table [dataSource]="transactions">
-<ng-container matColumnDef="name" >
-  <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
-  <mat-cell *matCellDef="let transaction">{{ transaction.name }}</mat-cell>
-</ng-container>
-<ng-container matColumnDef="status">
-  <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
-  <mat-cell *matCellDef="let transaction">{{ transaction.status }}</mat-cell>
-</ng-container>
-<ng-container matColumnDef="price">
-  <mat-header-cell *matHeaderCellDef>Amount</mat-header-cell>
-  <mat-cell *matCellDef="let transaction">{{ transaction.price}}</mat-cell>
-</ng-container>
-
-<mat-header-row *matHeaderRowDef="['name', 'status', 'price']"></mat-header-row>
-<mat-row *matRowDef="let row; columns: ['name', 'status', 'price']"></mat-row>
-</mat-table>
-<div class="all-transations">
-<button>View  all Transactions</button>
-</div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
-  <mat-grid-list role="list" [cols]="cols" rowHeight="430px">
-    <mat-grid-tile role="listitem"  [colspan]="colss" rowspan="1">
-      <mat-card class="dashboard-card">
-        <mat-card-header style="padding-bottom:1%;">
-          <span>{{'Member Age Distribution'|translate}}</span>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-        <app-radialbar></app-radialbar>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile role="listitem"  [colspan]="colss" rowspan="1">
-      <mat-card class="dashboard-card">
-        <mat-card-header style="padding-bottom:1%;">
-          <span>{{'Radar Insights: Clients by Day'|translate}}</span>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <app-radar-chart></app-radar-chart>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-
-  </mat-grid-list>
-  <mat-grid-list role="list" cols="2" rowHeight="290px">
-    <mat-grid-tile role="listitem"  [colspan]="2" [rowspan]="2">
-      <mat-card class="dashboard-card">
-        <mat-card-header style="padding-bottom:1%;">
-          <span>{{'Black List'|translate}}</span>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <app-blacklist-table></app-blacklist-table>
+          <ng-container *ngComponentOutlet="chart.component"></ng-container>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
 </div>
+

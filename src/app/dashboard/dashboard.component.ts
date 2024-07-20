@@ -8,6 +8,8 @@ import { BlacklistTableComponent } from '../blacklist-table/blacklist-table.comp
 import { ChartComponentt} from '../chart/chart.component';
 import { RadarChartComponent } from '../radar-chart/radar-chart.component';
 import { RadialbarComponent } from '../radialbar/radialbar.component';
+import { TransactionsComponent } from '../transactions/transactions.component';
+
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -52,13 +54,6 @@ export class DashboardComponent {
       }
     })
   }
-  transactions = [
-    { name: 'Transaction1', status: 'Completed', price: 100 },
-    { name: 'Transaction2', status: 'Pending', price: 150 },
-    { name: 'Transaction3', status: 'Completed', price: 100 },
-    { name: 'Transaction4', status: 'Pending', price: 150 },
-    { name: 'Transaction5', status: 'Completed', price: 100 },
-  ];
 
 
   tiles = [
@@ -68,14 +63,16 @@ export class DashboardComponent {
     { id: 4, title: 'Trainers', icon: 'fa-solid fa-person-chalkboard', value: 12, color: '#949BA0' }
   ];
   chartTiles = [
-    { title: 'Monthly Client Traffic', component: ChartComponentt },
-    { title: 'Clients Gender Overview', component: PieChartComponent },
-    { title: 'Member Age Distribution', component: RadialbarComponent },
-    { title: 'Radar Insights: Clients by Day', component: RadarChartComponent },
-    
+    { title: 'Monthly Client Traffic', component: ChartComponentt, colspan:this.colss, rowspan: 1 },
+    { title: 'Clients Gender Overview', component: PieChartComponent, colspan: 1, rowspan: 1 },
+    { title: 'Member Age Distribution', component: RadialbarComponent, colspan: this.colss, rowspan: 1 },
+    { title: 'Radar Insights: Clients by Day', component: RadarChartComponent, colspan: this.colss, rowspan: 1 },
+    { title: 'Blacklisted Clients', component: BlacklistTableComponent, colspan: 2, rowspan: 2 },
+    {title: 'Transaction', component: TransactionsComponent, colspan: 1, rowspan: 1}
   ];
   ngOnInit() {
     this.loadTiles();
+    this.loadChartTiles();
   }
 
   drop(event: CdkDragDrop<{ id: number; title: string; icon: string; value: number; color: string }[]>) {
@@ -83,8 +80,9 @@ export class DashboardComponent {
     this.saveTiles();
   }
 
-  dropChart(event: CdkDragDrop<{ title: string; component: any }[]>) {
+  dropChart(event: CdkDragDrop<{ title: string;colspan: number;rowspan: number; component: any }[]>) {
     moveItemInArray(this.chartTiles, event.previousIndex, event.currentIndex);
+    this.saveChartTiles();
   }
 
   saveTiles() {
@@ -97,6 +95,46 @@ export class DashboardComponent {
       this.tiles = JSON.parse(savedTiles);
     }
   }
+
+  saveChartTiles() {
+    const serializedChartTiles = this.chartTiles.map(chartTile => ({
+      ...chartTile,
+      component: chartTile.component.name
+    }));
+    localStorage.setItem('chartTiles', JSON.stringify(serializedChartTiles));
+  }
+
+  loadChartTiles() {
+    const savedChartTiles = localStorage.getItem('chartTiles');
+    if (savedChartTiles) {
+      const parsedChartTiles = JSON.parse(savedChartTiles);
+      this.chartTiles = parsedChartTiles.map((chartTile: any) => ({
+        ...chartTile,
+        component: this.getComponentByName(chartTile.component) // Convert name back to component
+      }));
+    }
+  }
+
+  getComponentByName(name: string): any {
+    switch (name) {
+      case 'ChartComponentt':
+        return ChartComponentt;
+      case 'PieChartComponent':
+        return PieChartComponent;
+      case 'RadialbarComponent':
+        return RadialbarComponent;
+      case 'RadarChartComponent':
+        return RadarChartComponent;
+      case 'BlacklistTableComponent':
+        return BlacklistTableComponent;
+      case 'TransactionsComponent':
+        return TransactionsComponent;
+      default:
+        return null;
+    }
+  }
+
+
 }
 
 

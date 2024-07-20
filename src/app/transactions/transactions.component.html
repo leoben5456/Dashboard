@@ -1,0 +1,23 @@
+
+<mat-table [dataSource]="transactions">
+<ng-container matColumnDef="name" >
+<mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+<mat-cell *matCellDef="let transaction">{{ transaction.name }}</mat-cell>
+</ng-container>
+<ng-container matColumnDef="status">
+<mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+<mat-cell *matCellDef="let transaction">{{ transaction.status }}</mat-cell>
+</ng-container>
+<ng-container matColumnDef="price">
+<mat-header-cell *matHeaderCellDef>Amount</mat-header-cell>
+<mat-cell *matCellDef="let transaction">{{ transaction.price}}</mat-cell>
+</ng-container>
+
+<mat-header-row *matHeaderRowDef="['name', 'status', 'price']"></mat-header-row>
+<mat-row *matRowDef="let row; columns: ['name', 'status', 'price']"></mat-row>
+</mat-table>
+<div class="all-transations">
+<button>View  all Transactions</button>
+</div>
+
+

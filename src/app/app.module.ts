@@ -34,6 +34,8 @@ import { RadarChartComponent } from './radar-chart/radar-chart.component';
 import { RadialbarComponent } from './radialbar/radialbar.component';
 import { DashboardSettingsComponent } from './dashboard-settings/dashboard-settings.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { TransactionsComponent } from './transactions/transactions.component';
+
 export function HttpLoaderFactory(http:HttpClient){
   return new TranslateHttpLoader(http);
 }
@@ -48,7 +50,8 @@ export function HttpLoaderFactory(http:HttpClient){
     BlacklistTableComponent,
     RadarChartComponent,
     RadialbarComponent,
-    DashboardSettingsComponent
+    DashboardSettingsComponent,
+    TransactionsComponent
   ],
   imports: [
     BrowserModule,
