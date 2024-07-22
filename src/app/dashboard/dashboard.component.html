@@ -17,7 +17,7 @@
 
 
 <div cdkDropList class="charts" [cdkDropListData]="chartTiles" (cdkDropListDropped)="dropChart($event)">
-  <mat-grid-list [cols]="4" rowHeight="430px">
+  <mat-grid-list [cols]="cols" rowHeight="430px">
     <mat-grid-tile *ngFor="let chart of chartTiles"
                   cdkDrag
                   cdkDragData="chart"

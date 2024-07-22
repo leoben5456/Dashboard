@@ -55,6 +55,66 @@ export class DashboardComponent {
     })
   }
 
+  observeBreakpoints() {
+    this.breakpointObserver.observe([
+      Breakpoints.HandsetPortrait,
+      Breakpoints.HandsetLandscape,
+      Breakpoints.TabletPortrait,
+      Breakpoints.TabletLandscape,
+      Breakpoints.Web,
+    ]).subscribe(result => {
+      if (result.matches) {
+        if (result.breakpoints[Breakpoints.HandsetPortrait]) {
+          this.adjustChartTilesForHandsetPortrait();
+        } else if (result.breakpoints[Breakpoints.HandsetLandscape]) {
+          this.adjustChartTilesForHandsetLandscape();
+        } else if (result.breakpoints[Breakpoints.TabletPortrait]) {
+          this.adjustChartTilesForTabletPortrait();
+        } else if (result.breakpoints[Breakpoints.TabletLandscape]) {
+          this.adjustChartTilesForTabletLandscape();
+        } else if (result.breakpoints[Breakpoints.Web]) {
+          this.adjustChartTilesForWeb();
+        }
+      }
+    });
+  }
+
+  adjustChartTilesForHandsetPortrait() {
+    // Assuming chartTiles is an array of objects that includes properties like colspan, rowspan, etc.
+    this.chartTiles.forEach(tile => {
+      tile.colspan = 1; // Set all tiles to take full width
+      tile.rowspan = 1; // Adjust height as needed for portrait mode
+    });
+  }
+
+  adjustChartTilesForHandsetLandscape() {
+    this.chartTiles.forEach(tile => {
+      tile.colspan = 2; // Allow tiles to be side by side
+      tile.rowspan = 1; // Keep the height minimal for landscape
+    });
+  }
+
+  adjustChartTilesForTabletPortrait() {
+    this.chartTiles.forEach(tile => {
+      tile.colspan = 2; // Use more of the width for tiles
+      tile.rowspan = 2; // Increase height for better visibility
+    });
+  }
+
+  adjustChartTilesForTabletLandscape() {
+    this.chartTiles.forEach(tile => {
+      tile.colspan = 3; // Spread out more in the width
+      tile.rowspan = 2; // Similar to portrait but with more width
+    });
+  }
+
+  adjustChartTilesForWeb() {
+    this.chartTiles.forEach(tile => {
+      tile.colspan = 1; // Maximize usage of available width
+      tile.rowspan = 1; // Optimal height for web viewing
+    });
+  }
+
 
   tiles = [
     { id: 1, title: 'Revenue', icon: 'fa-solid fa-dollar-sign', value: 300, color: '#BCD4DE' },
@@ -73,6 +133,7 @@ export class DashboardComponent {
   ngOnInit() {
     this.loadTiles();
     this.loadChartTiles();
+    this.observeBreakpoints();
   }
 
   drop(event: CdkDragDrop<{ id: number; title: string; icon: string; value: number; color: string }[]>) {

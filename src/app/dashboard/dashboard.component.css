@@ -8,6 +8,7 @@
   margin-left:1.5%;
 }
 .dashboard-card {
+  
   cursor: move;
   position: absolute;
   top:2px;
