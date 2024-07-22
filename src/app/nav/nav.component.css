@@ -237,3 +237,54 @@ display: none;
 }
 
 
+.theme-container {
+  font-family: Arial, sans-serif;
+  width: 300px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.theme-name {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.theme-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.theme-options button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.theme-options button:hover {
+  transform: scale(1.1);
+}
+
+.theme-options button.selected {
+  border: 2px solid #000;
+}
+
+.generate-btn {
+  padding-top:5px;
+}
+.generate-btn button{
+  width: 100%;
+  border-radius:5px;
+  border: none;
+  outline: none;
+  height: 40px;
+  font-size: 18px;
+}

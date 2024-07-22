@@ -49,13 +49,21 @@
 
 
       <!--Begin of Dark mode  section -->
-
-            <div (click)="toggleDarkTheme()"   class="lang"  [ngClass]="{'hide-element': isHandset, 'show-element': !isHandset}">
+            <div  class="lang"  [ngClass]="{'hide-element': isHandset, 'show-element': !isHandset}">
               <div class="icon-container">
-              <i class="fa-solid fa-moon" ></i>
+              <i  class="fa-solid fa-moon" ></i>
               </div>
             </div>
        <!--End of Dark mode  section -->
+
+        <!--Begin of Dark mode  section -->
+        <div  class="lang"  [ngClass]="{'hide-element': isHandset, 'show-element': !isHandset}">
+          <div class="icon-container">
+            <i (click)="sidebarVisible2 = true" class="fa-solid fa-palette"></i>
+          </div>
+        </div>
+        <!--End of Dark mode  section -->
+
 
        <!--Begin of notification section -->
        <div mat-button [matMenuTriggerFor]="beforenotifications" style="margin-right:2%;cursor:pointer;" class="icon-container">
@@ -95,3 +103,53 @@
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+<p-sidebar [(visible)]="sidebarVisible2" position="right">
+  <div class="themes-container">
+    <div class="theme-container">
+      <h3>Cards</h3>
+
+      <div class="theme-options">
+        <button *ngFor="let theme of themes"
+                [style.backgroundColor]="theme.color"
+                [class.selected]="selectedTheme === theme.name"
+                (click)="selectTheme(theme.name)">
+        </button>
+      </div>
+    </div>
+    <div class="theme-container">
+      <h3>Charts</h3>
+
+      <div class="theme-options">
+        <button *ngFor="let theme of themes"
+                [style.backgroundColor]="theme.color"
+                [class.selected]="selectedTheme === theme.name"
+                (click)="selectTheme(theme.name)">
+        </button>
+      </div>
+    </div>
+    <div class="theme-container">
+      <h3>Icons</h3>
+      <div class="theme-options">
+        <button *ngFor="let theme of whiteandblack"
+                [style.backgroundColor]="theme.color"
+                [class.selected]="selectedTheme === theme.name"
+                (click)="selectTheme(theme.name)">
+        </button>
+      </div>
+    </div>
+    <div class="theme-container">
+      <h3>Font</h3>
+      <div class="theme-options">
+        <button *ngFor="let theme of whiteandblack"
+                [style.backgroundColor]="theme.color"
+                [class.selected]="selectedTheme === theme.name"
+                (click)="selectTheme(theme.name)">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="generate-btn">
+    <button pTooltip="Generate pallete" tooltipPosition="top"  ><i class="fa-solid fa-wand-magic-sparkles"></i> Generate</button>
+  </div>
+</p-sidebar>

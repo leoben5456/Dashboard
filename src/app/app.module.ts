@@ -35,7 +35,8 @@ import { RadialbarComponent } from './radialbar/radialbar.component';
 import { DashboardSettingsComponent } from './dashboard-settings/dashboard-settings.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TransactionsComponent } from './transactions/transactions.component';
-
+import { SidebarModule } from 'primeng/sidebar';
+import { TooltipModule } from 'primeng/tooltip';
 export function HttpLoaderFactory(http:HttpClient){
   return new TranslateHttpLoader(http);
 }
@@ -77,6 +78,8 @@ export function HttpLoaderFactory(http:HttpClient){
     HttpClientModule,
     MatSelectModule,
     DragDropModule,
+    SidebarModule,
+    TooltipModule,
     TranslateModule.forRoot(
       {
         loader:{

@@ -24,7 +24,7 @@ export class NavComponent implements OnInit{
   currentLang: any;
   @ViewChild('searchIcon') searchIcon!: ElementRef;
   private breakpointObserver = inject(BreakpointObserver);
-
+  sidebarVisible2: boolean = false;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -83,6 +83,31 @@ export class NavComponent implements OnInit{
     toggleDarkTheme(): void {
       document.body.classList.toggle('dark-theme');
    }
+
+   themes = [
+    { name: 'Light Green', color: '#8FBC8F' },
+    { name: 'Sky Blue', color: '#87CEEB' },
+    { name: 'Royal Blue', color: '#4169E1' },
+    { name: 'Purple', color: '#8A2BE2' },
+    { name: 'Lavender', color: '#E6E6FA' },
+    { name: 'Pink', color: '#FFC0CB' },
+    { name: 'Mint', color: '#98FF98' },
+    { name: 'White', color: '#FFFFFF' },
+    { name: 'Dark Gray', color: '#A9A9A9' },
+    { name: 'Lime Green', color: '#32CD32' }
+  ];
+
+  whiteandblack=[
+    { name: 'White', color: '#FFFFFF' },
+    { name: 'Black', color: '#000000' },
+    {name: 'Gray', color: '#808080'}
+  ]
+
+  selectedTheme: string | null = null;
+
+  selectTheme(theme: string) {
+    this.selectedTheme = theme;
+  }
 
 }
 
