@@ -9,7 +9,7 @@ import { ChartComponentt} from '../chart/chart.component';
 import { RadarChartComponent } from '../radar-chart/radar-chart.component';
 import { RadialbarComponent } from '../radialbar/radialbar.component';
 import { TransactionsComponent } from '../transactions/transactions.component';
-
+import { ColorService } from '../color.service';
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -42,7 +42,8 @@ export class DashboardComponent {
   @Input() smallVersion: boolean = false;
   cols = 4;
   colss=2;
-  constructor(private breakpointObserver: BreakpointObserver) {
+  selectedColor!:string;
+  constructor(private breakpointObserver: BreakpointObserver,private colorService: ColorService) {
     this.breakpointObserver.observe(Breakpoints.Handset).subscribe((result)=>{
       if(result.matches){
         this.cols=1;
@@ -134,6 +135,11 @@ export class DashboardComponent {
     this.loadTiles();
     this.loadChartTiles();
     this.observeBreakpoints();
+    this.colorService.getcolor().subscribe(color=>{
+      this.updateTileColors(color);
+    }
+    );
+
   }
 
   drop(event: CdkDragDrop<{ id: number; title: string; icon: string; value: number; color: string }[]>) {
@@ -155,6 +161,14 @@ export class DashboardComponent {
     if (savedTiles) {
       this.tiles = JSON.parse(savedTiles);
     }
+  }
+
+
+  updateTileColors(newColor: string) {
+    this.tiles.forEach(tile => {
+      tile.color = newColor;
+    });
+    this.saveTiles();
   }
 
   saveChartTiles() {

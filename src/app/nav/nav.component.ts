@@ -5,6 +5,7 @@ import { map, shareReplay } from 'rxjs/operators';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { ElementRef, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { ColorService } from '../color.service';
 
 @Component({
   selector: 'app-nav',
@@ -22,6 +23,7 @@ export class NavComponent implements OnInit{
   searchboxwidth = 'width:20%';
   phone_mode='display:block';
   currentLang: any;
+  currentColor!:string;
   @ViewChild('searchIcon') searchIcon!: ElementRef;
   private breakpointObserver = inject(BreakpointObserver);
   sidebarVisible2: boolean = false;
@@ -65,7 +67,7 @@ export class NavComponent implements OnInit{
       }
 
     }
-    constructor(private translateService:TranslateService){
+    constructor(private translateService:TranslateService,private colorService:ColorService){
 
     }
     hidden = false;
@@ -85,16 +87,16 @@ export class NavComponent implements OnInit{
    }
 
    themes = [
-    { name: 'Light Green', color: '#8FBC8F' },
-    { name: 'Sky Blue', color: '#87CEEB' },
-    { name: 'Royal Blue', color: '#4169E1' },
+    { name: 'Light Green', color: '#C5E063' },
+    { name: 'Sky Blue', color: '#41658A' },
+    { name: 'Royal Blue', color: '#FFFBDB' },
     { name: 'Purple', color: '#8A2BE2' },
     { name: 'Lavender', color: '#E6E6FA' },
-    { name: 'Pink', color: '#FFC0CB' },
+    { name: 'Pink', color: '#B2ECE1' },
     { name: 'Mint', color: '#98FF98' },
     { name: 'White', color: '#FFFFFF' },
-    { name: 'Dark Gray', color: '#A9A9A9' },
-    { name: 'Lime Green', color: '#32CD32' }
+    { name: 'Dark Gray', color: '#79B473' },
+    { name: 'Lime Green', color: '#636940' }
   ];
 
   whiteandblack=[
@@ -108,6 +110,13 @@ export class NavComponent implements OnInit{
   selectTheme(theme: string) {
     this.selectedTheme = theme;
   }
+
+
+  colorSelected(color:string){
+    this.colorService.setcolor(color);
+  }
+
+
 
 }
 

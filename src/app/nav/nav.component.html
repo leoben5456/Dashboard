@@ -109,10 +109,10 @@
       <h3>Cards</h3>
 
       <div class="theme-options">
-        <button *ngFor="let theme of themes"
+        <button  *ngFor="let theme of themes"
                 [style.backgroundColor]="theme.color"
                 [class.selected]="selectedTheme === theme.name"
-                (click)="selectTheme(theme.name)">
+                (click)="colorSelected(theme.color)">
         </button>
       </div>
     </div>
