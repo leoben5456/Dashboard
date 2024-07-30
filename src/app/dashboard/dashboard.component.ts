@@ -43,6 +43,7 @@ export class DashboardComponent {
   cols = 4;
   colss=2;
   selectedColor!:string;
+  fontColor!:string;
   constructor(private breakpointObserver: BreakpointObserver,private colorService: ColorService) {
     this.breakpointObserver.observe(Breakpoints.Handset).subscribe((result)=>{
       if(result.matches){
@@ -139,6 +140,7 @@ export class DashboardComponent {
       this.updateTileColors(color);
     }
     );
+    this.updateFontColor();
 
   }
 
@@ -169,6 +171,13 @@ export class DashboardComponent {
       tile.color = newColor;
     });
     this.saveTiles();
+  }
+
+  updateFontColor(): void {
+    this.colorService.getfontcolor().subscribe(color => {
+      this.fontColor = color;
+      this.colorService.setfontcolor(color);
+    });
   }
 
   saveChartTiles() {

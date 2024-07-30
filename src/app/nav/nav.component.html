@@ -127,23 +127,14 @@
         </button>
       </div>
     </div>
-    <div class="theme-container">
-      <h3>Icons</h3>
-      <div class="theme-options">
-        <button *ngFor="let theme of whiteandblack"
-                [style.backgroundColor]="theme.color"
-                [class.selected]="selectedTheme === theme.name"
-                (click)="selectTheme(theme.name)">
-        </button>
-      </div>
-    </div>
+    
     <div class="theme-container">
       <h3>Font</h3>
       <div class="theme-options">
         <button *ngFor="let theme of whiteandblack"
                 [style.backgroundColor]="theme.color"
                 [class.selected]="selectedTheme === theme.name"
-                (click)="selectTheme(theme.name)">
+                (click)="fontcolorSelected(theme.color)">
         </button>
       </div>
     </div>

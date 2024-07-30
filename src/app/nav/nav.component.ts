@@ -116,6 +116,10 @@ export class NavComponent implements OnInit{
     this.colorService.setcolor(color);
   }
 
+  fontcolorSelected(color:string){
+    this.colorService.setfontcolor(color);
+  }
+
 
 
 }

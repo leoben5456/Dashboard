@@ -1,7 +1,7 @@
 <div  cdkDropList cdkDropListOrientation="horizontal" class="grid-container" [cdkDropListData]="tiles" (cdkDropListDropped)="drop($event)" class="grid-container">
   <h1 class="mat-h1"><span></span>{{'Dashboard' | translate}}</h1>
   <mat-grid-list role="list" [cols]="cols" rowHeight="160">
-  <mat-grid-tile *ngFor="let tile of tiles" cdkDrag role="listitem" [colspan]="1" [rowspan]="1" style="color:black">
+  <mat-grid-tile *ngFor="let tile of tiles" cdkDrag role="listitem" [colspan]="1" [rowspan]="1" [ngStyle]="{'color': fontColor}">
     <mat-card class="dashboard-card" [ngStyle]="{'background-color': tile.color}">
       <mat-card-header>
         <h5>{{tile.title | translate}}</h5>
