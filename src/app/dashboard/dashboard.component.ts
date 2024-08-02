@@ -42,6 +42,7 @@ export class DashboardComponent {
   @Input() smallVersion: boolean = false;
   cols = 4;
   colss=2;
+  isDarkMode = false;
   selectedColor!:string;
   fontColor!:string;
   constructor(private breakpointObserver: BreakpointObserver,private colorService: ColorService) {
@@ -141,6 +142,9 @@ export class DashboardComponent {
     }
     );
     this.updateFontColor();
+    this.colorService.darkMode$.subscribe(isDarkMode => {
+      this.isDarkMode = isDarkMode;
+    });
 
   }
 
@@ -216,6 +220,10 @@ export class DashboardComponent {
       default:
         return null;
     }
+  }
+  toggleDarkMode() {
+    this.colorService.toggleDarkMode();
+    console.log(this.isDarkMode);
   }
 
 

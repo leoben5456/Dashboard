@@ -1,14 +1,17 @@
 .grid-container {
   margin:0px;
   padding: 10px;
-
+  transition: background-color 0.3s ease, color 0.3s ease;
 
 }
 .mat-h1{
   margin-left:1.5%;
 }
+.charts{
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+}
 .dashboard-card {
-  
   cursor: move;
   position: absolute;
   top:2px;
@@ -20,6 +23,8 @@
   font-family: 'Roboto', sans-serif;
   font-size:20px;
   border-radius: 12px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
 }
 
 .more-button {
@@ -63,3 +68,13 @@
 }
 
 
+.dashboard-dark{
+  background-color:#282828;
+  color: white;
+}
+
+
+.cards-dark{
+  background-color:#3f3f3f;
+  color:white;
+}

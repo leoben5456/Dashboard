@@ -61,6 +61,8 @@ a.mat-list-item {
 {
   background-color:rgb(241, 245, 242);
   color: black;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
 }
 .example-spacer {
   flex: 1 1 auto;
@@ -117,7 +119,10 @@ a.mat-list-item {
   cursor: pointer;
 
 }
+mat-sidenav{
+  transition: background-color 0.3s ease, color 0.3s ease;
 
+}
 .lang-menu select option {
   padding: 10px;
 }
@@ -287,4 +292,12 @@ h2 {
   outline: none;
   height: 40px;
   font-size: 18px;
+}
+
+
+.dark-theme {
+  background-color: #3f3f3f;
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
 }

@@ -1,5 +1,5 @@
 <mat-sidenav-container  class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
+  <mat-sidenav [ngClass]="{'dark-theme': isDarkMode}"  #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
@@ -7,7 +7,7 @@
       <!--<span class="logo"><mat-icon>barbell</mat-icon></span>-->
     </mat-toolbar>
     <!-- Side  Nav Options -->
-    <mat-nav-list>
+    <mat-nav-list >
       <a mat-list-item [routerLink]="['/Dashboard']"><i class="fa-solid fa-house icon"></i><span >{{'Dashbord'|translate}}</span></a>
       <a mat-list-item href="#"><i class="fa-solid fa-user icon"></i><span>{{'Registering'|translate}}</span></a>
       <a mat-list-item href="#"><i class="fa-solid fa-money-bill-wheat icon"></i> <span>{{'Transactions'|translate}}</span></a>
@@ -19,7 +19,7 @@
     <!-- Side  Nav Options -->
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar [ngClass]="{'dark-theme': isDarkMode}" color="primary">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -50,7 +50,7 @@
 
       <!--Begin of Dark mode  section -->
             <div  class="lang"  [ngClass]="{'hide-element': isHandset, 'show-element': !isHandset}">
-              <div class="icon-container">
+              <div (click)="toggleDarkMode()" class="icon-container">
               <i  class="fa-solid fa-moon" ></i>
               </div>
             </div>
@@ -95,7 +95,8 @@
          <button  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-user menu-icons"></i></div><span class="text-with-margin"> Profil</span></div></button>
          <button  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-clock-rotate-left menu-icons"></i></div><span class="text-with-margin"> Activity</span></div></button>
          <button  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-comment menu-icons"></i></div><span class="text-with-margin"> Give feedback</span></div></button>
-         <button [ngClass]="{'show-element': isHandset, 'hide-element': !isHandset}"  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-moon menu-icons"></i></div><span class="text-with-margin">Dark mode</span></div></button>
+         <button (click)="toggleDarkMode()" [ngClass]="{'show-element': isHandset, 'hide-element': !isHandset}"  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-moon menu-icons"></i></div><span class="text-with-margin">Dark mode</span></div></button>
+         <button (click)="sidebarVisible2 = true" [ngClass]="{'show-element': isHandset, 'hide-element': !isHandset}"  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-palette"></i></div><span class="text-with-margin"> Theme</span></div></button>
          <button  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-right-from-bracket menu-icons"></i></div><span class="text-with-margin"> Logout</span></div></button>
       </mat-menu>
       <!--End of Profile  section -->
@@ -127,7 +128,7 @@
         </button>
       </div>
     </div>
-    
+
     <div class="theme-container">
       <h3>Font</h3>
       <div class="theme-options">
@@ -141,6 +142,6 @@
   </div>
 
   <div class="generate-btn">
-    <button pTooltip="Generate pallete" tooltipPosition="top"  ><i class="fa-solid fa-wand-magic-sparkles"></i> Generate</button>
+    <button (click)="GenetarePallete()" pTooltip="Generate pallete" tooltipPosition="top"  ><i class="fa-solid fa-wand-magic-sparkles"></i> Generate</button>
   </div>
 </p-sidebar>

@@ -24,6 +24,8 @@ export class NavComponent implements OnInit{
   phone_mode='display:block';
   currentLang: any;
   currentColor!:string;
+  palleteColors: string[] = [];
+  isDarkMode = false;
   @ViewChild('searchIcon') searchIcon!: ElementRef;
   private breakpointObserver = inject(BreakpointObserver);
   sidebarVisible2: boolean = false;
@@ -49,6 +51,9 @@ export class NavComponent implements OnInit{
       }
       this.isHandset$.subscribe((isHandset) => {
         this.isHandset = isHandset;
+      });
+      this.colorService.darkMode$.subscribe(isDarkMode => {
+        this.isDarkMode = isDarkMode;
       });
 
     }
@@ -121,6 +126,15 @@ export class NavComponent implements OnInit{
   }
 
 
+  GenetarePallete(){
+    this.palleteColors=this.colorService. generateRandomColors();
+
+  }
+
+  toggleDarkMode() {
+    this.colorService.toggleDarkMode();
+    console.log(this.isDarkMode);
+  }
 
 }
 

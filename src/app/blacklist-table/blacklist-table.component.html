@@ -26,7 +26,7 @@
   <mat-paginator #paginator
       [length]="dataSource.data.length"
       [pageIndex]="0"
-      [pageSize]="13"
+      [pageSize]="isHandset ? 4 : 13"
       aria-label="Select page">
   </mat-paginator>
 </div>

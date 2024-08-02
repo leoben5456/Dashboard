@@ -1,4 +1,5 @@
 import { Component,ViewChild } from '@angular/core';
+import { Legend } from 'chart.js';
 import {
   ChartComponent,
   ApexAxisChartSeries,
@@ -47,7 +48,42 @@ export class PieChartComponent {
           breakpoint: 300,
           options: {
             chart: {
-              width:100,
+              width:'140%',
+
+            },
+          }
+        },
+        {
+          breakpoint: 430,
+          options: {
+            chart: {
+              width:'130%',
+
+            },
+            legend: {
+              show: true,
+              position: 'top',
+              horizontalAlign: 'center'
+            },
+
+          }
+
+        },
+        {
+          breakpoint: 500,
+          options: {
+            chart: {
+              width:'140%',
+
+            },
+          }
+        },
+        {
+          breakpoint: 600,
+          options: {
+            chart: {
+              width:'140%',
+
             },
           }
         }
