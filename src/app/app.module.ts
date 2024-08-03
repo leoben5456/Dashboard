@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -32,7 +31,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { RadarChartComponent } from './radar-chart/radar-chart.component';
 import { RadialbarComponent } from './radialbar/radialbar.component';
-import { DashboardSettingsComponent } from './dashboard-settings/dashboard-settings.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { SidebarModule } from 'primeng/sidebar';
@@ -43,7 +41,6 @@ export function HttpLoaderFactory(http:HttpClient){
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent,
     NavComponent,
     DashboardComponent,
     ChartComponentt,
@@ -51,7 +48,6 @@ export function HttpLoaderFactory(http:HttpClient){
     BlacklistTableComponent,
     RadarChartComponent,
     RadialbarComponent,
-    DashboardSettingsComponent,
     TransactionsComponent
   ],
   imports: [
