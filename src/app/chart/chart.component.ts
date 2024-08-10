@@ -1,17 +1,20 @@
-import { Component,ViewChild } from '@angular/core';
-import * as ApexCharts from 'apexcharts';
-import { Chart, registerables } from 'chart.js';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChartComponent } from "ng-apexcharts";
+import { ColorService } from '../color.service';
+
 import {
-  ChartComponent,
   ApexAxisChartSeries,
   ApexChart,
   ApexXAxis,
   ApexTitleSubtitle,
   ApexResponsive,
-  ApexNonAxisChartSeries,
   ApexLegend,
-  ApexDataLabels
+  ApexDataLabels,
+  ApexOptions
 } from "ng-apexcharts";
+import * as ApexCharts from 'apexcharts';
+import { TranslateService } from '@ngx-translate/core';
+
 export type ChartOptions = {
   series: ApexAxisChartSeries;
   chart: ApexChart;
@@ -20,36 +23,38 @@ export type ChartOptions = {
   legend: ApexLegend;
   responsive: ApexResponsive[];
   dataLabels: ApexDataLabels;
-  color: any[];
+  colors: string[];
 };
-Chart.register(...registerables);
+
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.css']
 })
-export class ChartComponentt{
+export class ChartComponentt implements OnInit {
   @ViewChild("chart") chart!: ChartComponent;
-  public chartOptions: Partial<ChartOptions>;
+  public chartOptions!: Partial<ChartOptions>;
+  colors: string[] = [];
 
-  constructor() {
+  constructor(private colorService: ColorService,private translate:TranslateService) { }
+
+  ngOnInit(): void {
+    
+
     this.chartOptions = {
       series: [{
         name: 'Vip',
         data: [44, 55, 41, 67, 22, 43, 21, 49],
-        color:'#A5CCD1',
       }, {
-        name: 'Premieum',
+        name: 'Premium',
         data: [13, 23, 20, 8, 13, 27, 33, 12],
-        color:'#949BA0',
       }, {
         name: 'Basic',
         data: [11, 17, 15, 15, 21, 14, 15, 13],
-        color:'#A0B9BF',
       }],
-        chart: {
+      chart: {
         toolbar: {
-            show: false
+          show: false
         },
         type: 'bar',
         height: 350,
@@ -67,20 +72,31 @@ export class ChartComponentt{
         }
       }],
       xaxis: {
-        categories: ['January', 'February', 'March', 'April', 'May', 'June',
-          'July', 'August'
-        ],
+        categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August'],
       },
-
       legend: {
         position: 'right',
         offsetX: 0,
         offsetY: 50
       },
-      };
+      colors: this.colors
+    };
 
-      var chart = new ApexCharts(document.querySelector("#chart"),this.chartOptions);
-      chart.render();
-    }
+    this.colorService.colors$.subscribe(colors => {
+      this.colors = colors;
+      this.updateChartColors();
+    });
+
+    var chart = new ApexCharts(document.querySelector("#chart"), this.chartOptions);
+    chart.render();
   }
 
+  updateChartColors(): void {
+    this.chartOptions.colors = this.colors;
+    if (this.chart) {
+      this.chart.updateOptions({
+        colors: this.colors
+      });
+    }
+  }
+}

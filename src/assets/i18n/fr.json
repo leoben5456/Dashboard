@@ -14,5 +14,19 @@
   "Create Event":"Créer un évènement",
   "Website Settings":"Editeur",
   "Earning Statistics":"Stat de profit",
-  "Dashbord Settings":"Paramètres"
+  "Dashbord Settings":"Paramètres",
+  "Member Age Distribution":"Répartition des membres par âge",
+  "Radar Insights: Clients by Day":"Radar Insights : Clients par jour",
+  "Blacklisted Clients":"Clients sur liste noire",
+  "Categories": {
+    "January": "Janvier",
+    "February": "Février",
+    "March": "Mars",
+    "April": "Avril",
+    "May": "Mai",
+    "June": "Juin",
+    "July": "Juillet",
+    "August": "Août"
+  }
+
 }

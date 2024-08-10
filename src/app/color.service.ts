@@ -5,10 +5,10 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ColorService {
-  private colorsSubject = new BehaviorSubject<string[]>([]);
 
   selectedColor: BehaviorSubject<string>;
   fontColor: BehaviorSubject<string>;
+  private colorsSubject = new BehaviorSubject<string[]>([]);
   colors$ = this.colorsSubject.asObservable();
   private darkModeSubject = new BehaviorSubject<boolean>(false);
   darkMode$ = this.darkModeSubject.asObservable();
@@ -21,6 +21,7 @@ export class ColorService {
   ];
 
   constructor() {
+    this.generateOrLoadColors();
     const savedColor = localStorage.getItem('color') || '#A5CCD1';
     this.selectedColor = new BehaviorSubject<string>(savedColor);
     const savedFontColor = localStorage.getItem('fontcolor') || '#000000';
@@ -61,16 +62,29 @@ export class ColorService {
   }
   // Font Color Functions end
 
-  // Generate palette colors: 5 random color combinations from palleteColors array
+  // Generate or Load palette colors
+  generateOrLoadColors() {
+    const savedColors = localStorage.getItem('colors');
+    if (savedColors) {
+      this.colorsSubject.next(JSON.parse(savedColors));
+    } else {
+      this.generateRandomColors();
+    }
+  }
+
   generateRandomColors() {
     const colors = [];
     for (let i = 0; i < 5; i++) {
       const randomIndex = Math.floor(Math.random() * this.palleteColors.length);
       colors.push(this.palleteColors[randomIndex]);
     }
-    console.log(colors);
     this.colorsSubject.next(colors);
+    this.saveColors(colors);
     return colors;
+  }
+
+  saveColors(colors: string[]) {
+    localStorage.setItem('colors', JSON.stringify(colors));
   }
 
   // Dark Mode Functions start
