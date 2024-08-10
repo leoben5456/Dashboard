@@ -19,7 +19,7 @@
   "Member Age Distribution": "Distribución de Edad de los Miembros",
   "Radar Insights: Clients by Day": "Perspectivas de Radar: Clientes por Día",
   "Blacklisted Clients": "Clientes en la Lista Negra",
-  "Categories": {
+  "months": {
     "January": "Enero",
     "February": "Febrero",
     "March": "Marzo",
@@ -28,5 +28,23 @@
     "June": "Junio",
     "July": "Julio",
     "August": "Agosto"
+  },
+
+  "days": {
+    "Sunday": "Domingo",
+    "Monday": "Lunes",
+    "Tuesday": "Martes",
+    "Wednesday": "Miércoles",
+    "Thursday": "Jueves",
+    "Friday": "Viernes",
+    "Saturday": "Sábado"
+  },
+  "labels": {
+    "18-25 years": "18-25 años",
+    "26-35 years": "26-35 años",
+    "36-50 years": "36-50 años",
+    "51-65 years": "51-65 años",
+    "Male": "Hombre",
+    "Female": "Mujer"
   }
 }
