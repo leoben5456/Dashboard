@@ -20,24 +20,28 @@ This Angular Admin Dashboard serves as a comprehensive solution for managing, an
 
 You can view a live demo of the application by visiting [Demo Link](https://your-demo-url.com). Below is a preview of the dashboard:
 
-![Dashboard Preview](path/to/screenshot.png)
+![Dashboard Preview](src/assets/images/image.png)
 
 ## **Features**
 
-- **Dashboard with charts visualization:** Easily interpret and analyze data with a variety of interactive charts.
-- **Multi-language support (English, French, Spanish):** Reach a global audience with built-in language support.
-- **User management:** Efficiently manage user roles, permissions, and profiles.
-- **Real-time data updates:** Stay updated with live data streaming and instant refreshes.
-- **Responsive design:** Ensure your application looks great and functions seamlessly on any device.
+## **Features**
+
+- **Dashboard with drag-and-drop customization:** Easily change the position of charts and other elements on the dashboard using drag-and-drop functionality.
+- **Dark mode:** Switch to a dark theme for a more comfortable viewing experience in low-light environments.
+- **Customizable charts and cards:** Users can change the colors of charts and cards to match their preferences or branding.
+- **Multi-language support:** Reach a global audience with built-in support for multiple languages, including English, French, and Spanish.
+- **Responsive design:** Ensure your application looks great and functions seamlessly on any device, whether it's a desktop, tablet, or mobile.
+
 
 ## **Technology Stack**
 
 - **Angular:** Leveraging Angular's powerful two-way data binding, dependency injection, and comprehensive tooling.
 - **TypeScript:** Ensuring a type-safe environment with TypeScript, enhancing code quality and developer productivity.
-- **SCSS/CSS3:** Styling the dashboard with SCSS, providing a clean and consistent UI while allowing for easy theming and customization.
+- **CSS3:** Styling the dashboard with CSS3, providing a clean and consistent UI while allowing for easy theming and customization.
 - **HTML5:** Utilizing HTML5 for a semantic, accessible, and standards-compliant structure.
 - **RxJS:** Managing asynchronous data streams with RxJS, enabling efficient and scalable state management.
-- **NgRx (Optional):** For applications that require advanced state management, NgRx is available to handle complex state transitions and actions.
+- **Angular Material:** Implementing responsive and accessible UI components with Angular Material, ensuring a consistent look and feel across the application.
+- **PrimeNG:** Utilizing PrimeNG for additional UI components, to enhance the user interface.
 
 ## **Project Structure**
 
