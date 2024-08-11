@@ -47,7 +47,13 @@
     "51-65 years": "51-65 years",
     "Male": "Male",
     "Female": "Female"
-  }
+  },
+  "Profil":"Profil",
+  "Dark Mode":"Dark Mode",
+  "Activity":"Activity",
+  "Logout":"Logout",
+  "Give feedback":"Give Feedback"
+
 
 
 }

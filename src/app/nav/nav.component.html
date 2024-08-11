@@ -92,12 +92,12 @@
          <div style="padding-bottom:8%;padding-left:7%"  class="box-inside">
           <img  src="https://cdn-icons-png.flaticon.com/512/4792/4792944.png" class="avatar-v2" alt=""><span> Naoufal Bensaid</span>
          </div>
-         <button  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-user menu-icons"></i></div><span class="text-with-margin"> Profil</span></div></button>
-         <button  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-clock-rotate-left menu-icons"></i></div><span class="text-with-margin"> Activity</span></div></button>
-         <button  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-comment menu-icons"></i></div><span class="text-with-margin"> Give feedback</span></div></button>
-         <button (click)="toggleDarkMode()" [ngClass]="{'show-element': isHandset, 'hide-element': !isHandset}"  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-moon menu-icons"></i></div><span class="text-with-margin">Dark mode</span></div></button>
-         <button (click)="sidebarVisible2 = true" [ngClass]="{'show-element': isHandset, 'hide-element': !isHandset}"  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-palette"></i></div><span class="text-with-margin"> Theme</span></div></button>
-         <button  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-right-from-bracket menu-icons"></i></div><span class="text-with-margin"> Logout</span></div></button>
+         <button  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-user menu-icons"></i></div><span class="text-with-margin"> {{'Profil'|translate}}</span></div></button>
+         <button  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-clock-rotate-left menu-icons"></i></div><span class="text-with-margin">{{'Activity'|translate}}</span></div></button>
+         <button  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-comment menu-icons"></i></div><span class="text-with-margin"> {{'Give feedback'|translate}}</span></div></button>
+         <button (click)="toggleDarkMode()" [ngClass]="{'show-element': isHandset, 'hide-element': !isHandset}"  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-moon menu-icons"></i></div><span class="text-with-margin">{{'Dark mode'|translate}}</span></div></button>
+         <button (click)="sidebarVisible2 = true" [ngClass]="{'show-element': isHandset, 'hide-element': !isHandset}"  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-palette"></i></div><span class="text-with-margin">{{'Theme'|translate}}</span></div></button>
+         <button  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-right-from-bracket menu-icons"></i></div><span class="text-with-margin">{{'Logout'|translate}} </span></div></button>
       </mat-menu>
       <!--End of Profile  section -->
     </mat-toolbar>
