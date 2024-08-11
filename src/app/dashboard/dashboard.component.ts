@@ -9,7 +9,7 @@ import { ChartComponentt} from '../chart/chart.component';
 import { RadarChartComponent } from '../radar-chart/radar-chart.component';
 import { RadialbarComponent } from '../radialbar/radialbar.component';
 import { TransactionsComponent } from '../transactions/transactions.component';
-import { ColorService } from '../color.service';
+import { ColorService } from '../services/color.service';
 export interface PeriodicElement {
   name: string;
   position: number;

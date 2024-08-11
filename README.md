@@ -44,9 +44,10 @@ You can view a live demo of the application by visiting [Demo Link](https://your
 The project follows Angular's best practices and recommended folder structure:
 
 - **src/app/modules:** Contains feature modules for different parts of the dashboard.
-- **src/app/shared:** Shared components, services, and utilities that are used across the application.
+- **src/app/services** Contains services that are used across the application.
 - **src/assets:** Static assets like images, icons, and styles.
 - **src/environments:** Configuration files for different environments (development, production, etc.).
+- **src/assets/i18n:** Contains translation files for internationalization (i18n) support.
 
 ## **Getting Started**
 

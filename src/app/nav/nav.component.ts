@@ -5,7 +5,7 @@ import { map, shareReplay } from 'rxjs/operators';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { ElementRef, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { ColorService } from '../color.service';
+import { ColorService } from '../services/color.service';
 
 @Component({
   selector: 'app-nav',
