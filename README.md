@@ -1,30 +1,155 @@
-# AdminSide
+# **Angular Admin Dashboard Project**
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.9.
+Welcome to the **Angular Admin Dashboard Project**, a modern and responsive dashboard application built using Angular, one of the most powerful frameworks for developing dynamic and scalable web applications. This project is designed to provide a robust, flexible, and visually appealing platform that caters to various administrative tasks and data visualization needs.
 
-## Development server
+## **Table of Contents**
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Project Overview](#project-overview)
+- [Demo](#demo)
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [License](#license)
 
-## Code scaffolding
+## **Project Overview**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This Angular Admin Dashboard serves as a comprehensive solution for managing, analyzing, and visualizing data across different domains. Whether you are looking to monitor business performance, track user engagement, or manage client information, this dashboard offers a seamless experience with intuitive navigation and rich features.
 
-## Build
+## **Demo**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+You can view a live demo of the application by visiting [Demo Link](https://your-demo-url.com). Below is a preview of the dashboard:
 
-## Running unit tests
+![Dashboard Preview](path/to/screenshot.png)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## **Features**
 
-## Running end-to-end tests
+- **Dashboard with charts visualization:** Easily interpret and analyze data with a variety of interactive charts.
+- **Multi-language support (English, French, Spanish):** Reach a global audience with built-in language support.
+- **User management:** Efficiently manage user roles, permissions, and profiles.
+- **Real-time data updates:** Stay updated with live data streaming and instant refreshes.
+- **Responsive design:** Ensure your application looks great and functions seamlessly on any device.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## **Technology Stack**
 
-## Further help
+- **Angular:** Leveraging Angular's powerful two-way data binding, dependency injection, and comprehensive tooling.
+- **TypeScript:** Ensuring a type-safe environment with TypeScript, enhancing code quality and developer productivity.
+- **SCSS/CSS3:** Styling the dashboard with SCSS, providing a clean and consistent UI while allowing for easy theming and customization.
+- **HTML5:** Utilizing HTML5 for a semantic, accessible, and standards-compliant structure.
+- **RxJS:** Managing asynchronous data streams with RxJS, enabling efficient and scalable state management.
+- **NgRx (Optional):** For applications that require advanced state management, NgRx is available to handle complex state transitions and actions.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## **Project Structure**
 
-# Dashboard
-Admin Dashboard with Charts Visualization
+The project follows Angular's best practices and recommended folder structure:
+
+- **src/app/modules:** Contains feature modules for different parts of the dashboard.
+- **src/app/shared:** Shared components, services, and utilities that are used across the application.
+- **src/assets:** Static assets like images, icons, and styles.
+- **src/environments:** Configuration files for different environments (development, production, etc.).
+
+## **Getting Started**
+
+To get started with this project, you have two options: setting it up traditionally via Angular CLI or using Docker. Follow the steps below depending on your preferred method.
+
+### **Option 1: Traditional Setup (Angular CLI)**
+
+1. **Clone the repository:**
+   
+   ```bash
+   git clone https://github.com/your-repository/angular-admin-dashboard.git
+2. **Navigate to the project directory:**
+   
+   ```bash
+   cd admin-side
+3. **Install dependencies:**
+   
+   Ensure you have Node.js and npm installed. Then, run:
+   
+   ```bash
+   npm install
+   
+4. **Serve the application:**
+   
+   To start a local development server and see your app in action, run:
+   
+   ```bash
+   ng serve
+  Open your browser and navigate to http://localhost:4200. The app will automatically reload if you change any of the source files.
+
+### **Option 2: Using Docker Compose**  
+  1. **Clone the repository:**
+      
+     ```bash
+     git clone https://github.com/your-repository/angular-admin-dashboard.git
+
+  2. **Navigate to the project directory:**
+
+     ```bash
+     cd admin-side
+     
+  3. **Ensure you have Docker and Docker Compose installed.**
+     
+  4. **Start the application using Docker Compose:**
+     
+     To start the application and build the Docker images, run:
+     
+     ```bash
+     docker-compose up --build
+     
+   Open your browser and navigate to http://localhost:4200. The app will automatically reload if you change any of the source files.
+   
+  5. **Stop the application:**
+   
+     To stop the Docker containers, run:
+     
+     ```bash
+     docker-compose down
+## **License**
+
+This project is free to use under the MIT License. You are free to use, modify, and distribute this software for any purpose, including commercial applications, as long as you include the original copyright notice and a copy of the license in any distributed versions of the software.
+
+For more details, see the full text of the [MIT License](LICENSE).
+
+---
+
+MIT License
+-----------
+
+Copyright (c) 2024 Naoufal
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+   
+
+
+    
+
+
+
+
+   
+
+  
+
+
+   
+
+   
+
+   
