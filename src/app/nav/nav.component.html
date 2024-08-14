@@ -98,6 +98,7 @@
          <button (click)="toggleDarkMode()" [ngClass]="{'show-element': isHandset, 'hide-element': !isHandset}"  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-moon menu-icons"></i></div><span class="text-with-margin">{{'Dark mode'|translate}}</span></div></button>
          <button (click)="sidebarVisible2 = true" [ngClass]="{'show-element': isHandset, 'hide-element': !isHandset}"  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-palette"></i></div><span class="text-with-margin">{{'Theme'|translate}}</span></div></button>
          <button  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-right-from-bracket menu-icons"></i></div><span class="text-with-margin">{{'Logout'|translate}} </span></div></button>
+
       </mat-menu>
       <!--End of Profile  section -->
     </mat-toolbar>
@@ -117,17 +118,7 @@
         </button>
       </div>
     </div>
-    <div class="theme-container">
-      <h3>Charts</h3>
 
-      <div class="theme-options">
-        <button *ngFor="let theme of themes"
-                [style.backgroundColor]="theme.color"
-                [class.selected]="selectedTheme === theme.name"
-                (click)="selectTheme(theme.name)">
-        </button>
-      </div>
-    </div>
 
     <div class="theme-container">
       <h3>Font</h3>

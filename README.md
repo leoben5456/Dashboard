@@ -22,7 +22,7 @@ You can view a live demo of the application by visiting [Demo Link](https://your
 
 ![Dashboard Preview](src/assets/images/image.png)
 
-## **Features**
+
 
 ## **Features**
 

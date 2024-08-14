@@ -1,0 +1,54 @@
+{
+  "Dashbord":"Dashbord",
+  "Registering":"Registration",
+  "Revenue":"Revenu",
+  "Clients":"Clientèle",
+  "Visitors":"Visiteurs",
+  "Trainers":"Formateurs",
+  "Monthly Client Traffic":"flux du mois",
+  "Clients Gender Overview":"Stat sexe ",
+  "Black List":"Blacklisté",
+  "Name":"Nom",
+  "Duration":"Durée",
+  "Transactions":"Transactions",
+  "Create Event":"Créer un évènement",
+  "Website Settings":"Editeur",
+  "Earning Statistics":"Stat de profit",
+  "Dashbord Settings":"Paramètres",
+  "Member Age Distribution":"Répartition des membres par âge",
+  "Radar Insights: Clients by Day":"Radar Insights : Clients par jour",
+  "Blacklisted Clients":"Clients sur liste noire",
+  "months": {
+    "January": "Janvier",
+    "February": "Février",
+    "March": "Mars",
+    "April": "Avril",
+    "May": "Mai",
+    "June": "Juin",
+    "July": "Juillet",
+    "August": "Août"
+  },
+  "days": {
+    "Sunday": "Dimanche",
+    "Monday": "Lundi",
+    "Tuesday": "Mardi",
+    "Wednesday": "Mercredi",
+    "Thursday": "Jeudi",
+    "Friday": "Vendredi",
+    "Saturday": "Samedi"
+  },
+  "labels": {
+    "18-25 years": "18-25 ans",
+    "26-35 years": "26-35 ans",
+    "36-50 years": "36-50 ans",
+    "51-65 years": "51-65 ans",
+    "Male": "Homme",
+    "Female": "Femme"
+  },
+  "Profil":"Profil",
+  "Dark Mode":"Mode sombre",
+  "Activity":"Activité",
+  "Logout":"Déconnexion",
+  "Give feedback":"Donner un retour"
+
+}
