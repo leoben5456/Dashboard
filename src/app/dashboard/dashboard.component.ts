@@ -40,6 +40,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 export class DashboardComponent {
   @Input() smallVersion: boolean = false;
+  isHandset: boolean = false;
   cols = 4;
   colss=2;
   isDarkMode = false;
@@ -47,6 +48,7 @@ export class DashboardComponent {
   fontColor!:string;
   constructor(private breakpointObserver: BreakpointObserver,private colorService: ColorService) {
     this.breakpointObserver.observe(Breakpoints.Handset).subscribe((result)=>{
+      this.isHandset = result.matches;
       if(result.matches){
         this.cols=1;
         this.colss=1;

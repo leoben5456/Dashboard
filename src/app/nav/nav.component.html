@@ -42,7 +42,7 @@
         <button mat-menu-item (click)="Changelang('sp')">Spanish</button>
         <button mat-menu-item (click)="Changelang('fr')">Frensh</button>
         </mat-menu>
-        </div>
+      </div>
       <!--End of Language  section -->
 
 
@@ -56,13 +56,13 @@
             </div>
        <!--End of Dark mode  section -->
 
-        <!--Begin of Dark mode  section -->
+        <!--Begin of pallete  section -->
         <div  class="lang"  [ngClass]="{'hide-element': isHandset, 'show-element': !isHandset}">
           <div class="icon-container">
             <i (click)="sidebarVisible2 = true" class="fa-solid fa-palette"></i>
           </div>
         </div>
-        <!--End of Dark mode  section -->
+        <!--End of pallete  section -->
 
 
        <!--Begin of notification section -->
@@ -97,8 +97,8 @@
          <button  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-comment menu-icons"></i></div><span class="text-with-margin"> {{'Give feedback'|translate}}</span></div></button>
          <button (click)="toggleDarkMode()" [ngClass]="{'show-element': isHandset, 'hide-element': !isHandset}"  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-moon menu-icons"></i></div><span class="text-with-margin">{{'Dark mode'|translate}}</span></div></button>
          <button (click)="sidebarVisible2 = true" [ngClass]="{'show-element': isHandset, 'hide-element': !isHandset}"  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-palette"></i></div><span class="text-with-margin">{{'Theme'|translate}}</span></div></button>
+         <button [matMenuTriggerFor]="menu" [ngClass]="{'show-element': isHandset, 'hide-element': !isHandset}"  mat-menu-item> <div class="button-content"> <div  [matMenuTriggerFor]="menu" class="icon-container" ><i class="fa-solid fa-globe"></i></div><span class="text-with-margin">{{'Language'|translate}} </span></div></button>
          <button  mat-menu-item> <div class="button-content"> <div class="icon-menus-container"><i class="fa-solid fa-right-from-bracket menu-icons"></i></div><span class="text-with-margin">{{'Logout'|translate}} </span></div></button>
-
       </mat-menu>
       <!--End of Profile  section -->
     </mat-toolbar>

@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
     private translateService: TranslateService,
 
   ) {}
-  title = 'admin-side';
+  title = 'Admin Dashboard';
   ngOnInit() {
     this.translateService.setDefaultLang('en');
     this.translateService.use(localStorage.getItem('lang') || 'en');
