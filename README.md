@@ -18,7 +18,7 @@ This Angular Admin Dashboard serves as a comprehensive solution for managing, an
 
 ## **Demo**
 
-You can view a live demo of the application by visiting [Demo Link]([https://your-demo-url.com](https://euphonious-flan-f7e0d2.netlify.app/). Below is a preview of the dashboard:
+You can view a live demo of the application by visiting [this demo link](https://euphonious-flan-f7e0d2.netlify.app/). Below is a preview of the dashboard:
 
 ![Dashboard Preview](src/assets/images/image.png)
 
